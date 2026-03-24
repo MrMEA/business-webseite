@@ -39,3 +39,7 @@ app.post("/send", async (req, res) => {
 app.listen(3000, () => {
     console.log("Server läuft auf https://business-webseite.onrender.com/send");
 });
+
+app.get("/", (req, res) => {
+    res.send("Server läuft!");
+});
