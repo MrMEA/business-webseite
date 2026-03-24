@@ -20,6 +20,17 @@ app.post("/send", async (req, res) => {
 }
     });
 
+
+transporter.verify(function(error, success) {
+    if (error) {
+        console.log("VERIFY ERROR:", error);
+    } else {
+        console.log("Server is ready to send emails");
+    }
+});
+
+
+
     let mailOptions = {
         from:process.env.EMAIL_USER,
         to: process.env.EMAIL_USER,
