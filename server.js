@@ -15,14 +15,14 @@ app.post("/send", async (req, res) => {
     let transporter = nodemailer.createTransport({
         service: "gmail",
         auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS
+    user: EMAIL_USER,
+    pass: EMAIL_PASS
 }
     });
 
     let mailOptions = {
-        from: "DEINE_EMAIL@gmail.com",
-        to: "DEINE_EMAIL@gmail.com",
+        from: EMAIL_USER,
+        to: EMAIL_USER,
         subject: "Neue Anfrage",
         text: `Name: ${name} \nNachricht: ${message}`
     };
@@ -37,5 +37,5 @@ app.post("/send", async (req, res) => {
 });
 
 app.listen(3000, () => {
-    console.log("Server läuft auf http://localhost:3000");
+    console.log("Server läuft auf https://business-webseite.onrender.com/send");
 });
