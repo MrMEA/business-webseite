@@ -13,7 +13,10 @@ app.post("/send", async (req, res) => {
     const { name, message } = req.body;
 
     let transporter = nodemailer.createTransport({
-        service: "gmail",
+         host: "smtp.gmail.com",
+    port: 587,
+    secure: false,      // TLS
+    family: 4,          // erzwingt IPv4
         auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS
