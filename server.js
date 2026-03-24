@@ -42,7 +42,7 @@ app.post("/send", async (req, res) => {
         await transporter.sendMail(mailOptions);
         res.send("Email gesendet");
     } catch (err) {
-        res.status(500).send("Fehler");
+        res.status(500).send(err.message);
     }
 
 });
