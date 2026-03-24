@@ -9,20 +9,20 @@ app.use(cors());
 app.use(express.json());
 
 app.post("/send", async (req, res) => {
-
+    console.log("Request angekommen:", req.body);
     const { name, message } = req.body;
 
     let transporter = nodemailer.createTransport({
         service: "gmail",
         auth: {
-    user: EMAIL_USER,
-    pass: EMAIL_PASS
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_USER
 }
     });
 
     let mailOptions = {
-        from: EMAIL_USER,
-        to: EMAIL_USER,
+        from:process.env.EMAIL_USER,
+        to: process.env.EMAIL_USER,
         subject: "Neue Anfrage",
         text: `Name: ${name} \nNachricht: ${message}`
     };
@@ -43,3 +43,5 @@ app.listen(3000, () => {
 app.get("/", (req, res) => {
     res.send("Server läuft!");
 });
+
+
