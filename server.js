@@ -1,6 +1,8 @@
-require("dotenv").config();
+
 const dns = require("dns");
 dns.setDefaultResultOrder("ipv4first");
+require("dotenv").config();
+
 const express = require("express");
 const nodemailer = require("nodemailer");
 const cors = require("cors");
@@ -15,25 +17,18 @@ app.post("/send", async (req, res) => {
     const { name, message } = req.body;
 
     let transporter = nodemailer.createTransport({
-         host: "smtp.gmail.com",
+         host: "74.125.140.108",
     port: 587,
     secure: false,      // TLS
-    family: 4,          // erzwingt IPv4
+    requireTLS: true,
+    tls: {
+        family: 4
+    },         
         auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS
 }
     });
-
-
-transporter.verify(function(error, success) {
-    if (error) {
-        console.log("VERIFY ERROR:", error);
-    } else {
-        console.log("Server is ready to send emails");
-    }
-});
-
 
 
     let mailOptions = {
