@@ -1,34 +1,44 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <title>Bäckerei Müller</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bäckerei Elite</title>
+<link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
-<header>
-    <h1>Bäckerei Müller</h1>
-    <p>Frisch gebacken – jeden Tag</p>
+<header class="header">
+<h1>🍞 Bäckerei Elite</h1>
 </header>
 
-<section>
-    <h2>Unsere Produkte</h2>
-    <p>Brot, Brötchen, Kuchen</p>
+<section class="hero">
+<h2>Traditionelle Backkunst aus Bayern</h2>
+<p id="status"></p>
 </section>
 
-<section>
-    <h2>Kontakt</h2>
-
-    <input type="text" id="name" placeholder="Name">
-    <input type="text" id="message" placeholder="Nachricht">
-
-    <button onclick="sendRequest()">Anfrage senden</button>
-
+<section class="gallery">
+<h2>Unsere Spezialitäten</h2>
+<div class="track" id="track"></div>
 </section>
 
-<script src="script.js"></script>
+<!-- MODAL -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span onclick="closeModal()" class="close">X</span>
+    <h2 id="title"></h2>
+    <p id="desc"></p>
+  </div>
+</div>
 
+<section class="info">
+<h2>Kontakt & Info</h2>
+<p>📍 München, Deutschland</p>
+<p>📧 info@baeckerei.de</p>
+<p>📞 +49 123 456789</p>
+<p>⏰ Mo–Fr 7–18 | Sa 7–14</p>
+</section>
+
+<script src="app.js"></script>
 </body>
 </html>
