@@ -23,20 +23,45 @@
 </section>
 
 <!-- MODAL -->
-<div id="modal" class="modal">
-  <div class="modal-content">
-    <span onclick="closeModal()" class="close">X</span>
+<div id="modal" class="modal" onclick="closeModal()">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <span class="close" onclick="closeModal()">X</span>
     <h2 id="title"></h2>
     <p id="desc"></p>
   </div>
 </div>
 
 <section class="info">
-<h2>Kontakt & Info</h2>
-<p>📍 München, Deutschland</p>
-<p>📧 info@baeckerei.de</p>
-<p>📞 +49 123 456789</p>
-<p>⏰ Mo–Fr 7–18 | Sa 7–14</p>
+  <h2 style="text-align:center; margin-bottom:40px;">Kontakt & Mehr</h2>
+
+  <div class="info-container">
+
+    <div class="info-card">
+      <h3>📍 Standort</h3>
+      <p>München, Deutschland</p>
+      <p>Tradition seit 1998</p>
+    </div>
+
+    <div class="info-card">
+      <h3>⏰ Öffnungszeiten</h3>
+      <p>Mo–Fr: 7–18</p>
+      <p>Sa: 7–14</p>
+      <p>So: geschlossen</p>
+    </div>
+
+    <div class="info-card">
+      <h3>📞 Kontakt</h3>
+      <p>+49 123 456789</p>
+      <p>info@baeckerei.de</p>
+    </div>
+
+    <div class="info-card">
+      <h3>⭐ Bewertungen</h3>
+      <div class="rating">★★★★★</div>
+      <p>4.9 / 5 von 120+ Kunden</p>
+    </div>
+
+  </div>
 </section>
 
 <script src="app.js"></script>

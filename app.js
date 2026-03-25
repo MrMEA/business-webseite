@@ -10,25 +10,41 @@ const products = [
 {name:"Ciabatta",desc:"Italienisches Brot",img:"images/ciabatta.jpg"},
 {name:"Walnussbrot",desc:"Mit Nüssen verfeinert",img:"images/walnussbrot.jpg"},
 
+
 ];
 
 const track=document.getElementById("track");
 
+function createImage(p){
+  let img = document.createElement("img");
+  img.src = p.img;
+  img.onclick = () => openModal(p.name, p.desc);
+  return img;
+}
+
+// 🔴 WICHTIG: zuerst leeren (falls doppelt geladen wird)
+track.innerHTML = "";
+
+// ORIGINAL
 products.forEach(p=>{
-let img=document.createElement("img");
-img.src = p.img;
-img.onclick=()=>openModal(p.name,p.desc);
-track.appendChild(img);
+  track.appendChild(createImage(p));
+});
+
+// 🔥 DUPLIKAT → für endlosen Loop
+products.forEach(p=>{
+  track.appendChild(createImage(p));
 });
 
 function openModal(title,desc){
-document.getElementById("modal").style.display="flex";
+ const modal =document.getElementById("modal");
 document.getElementById("title").textContent=title;
 document.getElementById("desc").textContent=desc;
+modal.classList.add("active");
+
 }
 
 function closeModal(){
-document.getElementById("modal").style.display="none";
+document.getElementById("modal").classList.remove("active");;
 }
 
 // Öffnungszeiten
@@ -39,3 +55,5 @@ let open=(d>=1&&d<=5&&h>=7&&h<18)||(d==6&&h>=7&&h<14);
 document.getElementById("status").textContent=open?"🟢 Geöffnet":"🔴 Geschlossen";
 }
 checkOpen();
+
+
